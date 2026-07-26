@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OmniGlobe News | The Universal Pulse of Global News</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="OmniGlobe News | The Universal Pulse of Global News" />
+    <meta name="description" content="OmniGlobe News delivers real-time, high-tech global journalism. Covering World, Tech & AI, Business, Politics, and Science with unparalleled authority." />
+    <meta name="keywords" content="Global News, Breaking News, Tech News, AI, Business, Politics, Science, OmniGlobe" />
+    <meta name="author" content="OmniGlobe News" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://omniglobe.news/" />
+    <meta property="og:title" content="OmniGlobe News | The Universal Pulse of Global News" />
+    <meta property="og:description" content="Real-time, high-tech global journalism. Covering World, Tech & AI, Business, Politics, and Science." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://omniglobe.news/" />
+    <meta property="twitter:title" content="OmniGlobe News | The Universal Pulse of Global News" />
+    <meta property="twitter:description" content="Real-time, high-tech global journalism. Covering World, Tech & AI, Business, Politics, and Science." />
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Outfit (UI) & Merriweather (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'royal-navy': '#0F172A',
+                        'royal-navy-light': '#1E293B',
+                        'crimson-red': '#DC2626',
+                        'crimson-red-glow': '#ef4444',
+                        'slate-gray-bg': '#F8FAFC',
+                        'slate-gray-card': '#F1F5F9'
+                    },
+                    fontFamily: {
+                        'ui': ['Outfit', 'sans-serif'],
+                        'body': ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Schema.org NewsArticle JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "name": "OmniGlobe News",
+      "url": "https://omniglobe.news",
+      "logo": "https://omniglobe.news/logo.png",
+      "sameAs": [
+        "https://twitter.com/omniglobe",
+        "https://facebook.com/omniglobe"
+      ],
+      "publishingPrinciples": "https://omniglobe.news/ethics"
+    }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; }
+        .font-body { font-family: 'Merriweather', serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #DC2626; border-radius: 4px; }
+        
+        /* Breaking News Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .ticker-animate {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 50px;
+            animation: ticker 60s linear infinite;
+        }
+        .ticker-container:hover .ticker-animate { animation-play-state: paused; }
+
+        /* Glowing Effects */
+        .glow-red { box-shadow: 0 0 10px rgba(220, 38, 38, 0.7), 0 0 20px rgba(220, 38, 38, 0.4); }
+        .glow-blue { text-shadow: 0 0 15px rgba(59, 130, 246, 0.6); }
+        .glow-globe { filter: drop-shadow(0 0 8px rgba(255,255,255,0.3)); }
+
+        /* Live Pulse */
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .live-dot { animation: pulse-dot 1.5s infinite; }
+
+        /* Card Hover Effects */
+        .article-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .article-card img { transition: transform 0.5s ease; }
+        .article-card:hover img { transform: scale(1.05); }
+
+        /* Hide scrollbar for video slider */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Dark Mode Transitions */
+        * { transition: background-color 0.3s ease, border-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-gray-bg dark:bg-royal-navy text-royal-navy dark:text-slate-200 font-ui antialiased">
+
+    <!-- ========================================== -->
+    <!-- DATA STRUCTURE (EASY CMS / JSON FORMAT)    -->
+    <!-- ========================================== -->
+    <script>
+        const OmniGlobeData = {
+            "breakingNews": [
+                "Federal Reserve announces historic 0.5% interest rate cut amid cooling inflation data.",
+                "Breakthrough in Quantum Computing: IBM unveils 1000-qubit processor, promising medical revolutions.",
+                "Global Climate Summit reaches landmark agreement to phase out unabated coal by 2030.",
+                "SpaceX Starship completes first orbital refueling test, clearing path for lunar missions."
+            ],
+            "trending": [
+                { id: 1, title: "AI Regulation Bill passes Senate after marathon 14-hour debate", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", time: "32m ago", views: "1.2M" },
+                { id: 2, title: "Global markets rally as semiconductor shortage shows signs of easing", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", time: "1h ago", views: "890K" },
+                { id: 3, title: "Mars Rover discovers complex organic molecules in Jezero Crater delta", img: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", time: "2h ago", views: "1.5M" },
+                { id: 4, title: "EU and US sign landmark Data Privacy Framework agreement", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", time: "3h ago", views: "650K" },
+                { id: 5, title: "Renewable energy now accounts for 40% of global power generation", img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", time: "4h ago", views: "720K" }
+            ],
+            "editorsPicks": [
+                "The quiet revolution: How solid-state batteries will change EVs by 2026",
+                "Inside the diplomatic cables shaping the Pacific Alliance strategy",
+                "Why the next streaming war will be fought over live sports rights",
+                "Decoding the genome: A new era of personalized medicine is here"
+            ],
+            "hero": {
+                title: "The Dawn of Artificial General Intelligence: Are We Prepared?",
+                excerpt: "A consortium of leading researchers has published findings suggesting AGI could be realized within the next decade. We explore the economic, ethical, and existential implications of a world where machines match human cognition.",
+                img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                category: "Tech & AI",
+                author: "Dr. Evelyn Cho",
+                readTime: "12 min read",
+                date: "October 24, 2023"
+            },
+            "secondaryHero": [
+                { title: "Central Banks pivot towards digital currencies to modernize settlement layers", img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", category: "Business" },
+                { title: "UN Security Council authorizes peacekeeping mission in conflict zone", img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", category: "World" },
+                { title: "Astronomers capture first image of a black hole's magnetic vortex", img: "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", category: "Science" }
+            ],
+            "videos": [
+                { title: "Live: Senate Hearing on AI Oversight", duration: "LIVE", img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", type: "Live Broadcast" },
+                { title: "Inside the World's Largest Semiconductor Foundry", duration: "14:32", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", type: "Documentary" },
+                { title: "The Daily Brief: Market Open Analysis", duration: "08:15", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", type: "Podcast" },
+                { title: "Climate Tech: Harnessing Ocean Wave Energy", duration: "22:10", img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", type: "Video Report" }
+            ],
+            "categoryGrid": {
+                "tech": [
+                    { title: "OpenAI's latest model demonstrates complex reasoning capabilities", img: "https://images.unsplash.com/photo-1488229297570-58520851e868?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "1h ago" },
+                    { title: "Apple unveils revolutionary spatial computing headset", img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "3h ago" },
+                    { title: "Cybersecurity firm exposes massive zero-day vulnerability", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "5h ago" }
+                ],
+                "business": [
+                    { title: "Wall Street surges as inflation data beats expectations", img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "2h ago" },
+                    { title: "Tesla announces new Gigafactory in Southeast Asia", img: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "4h ago" },
+                    { title: "Crypto markets stabilize amid regulatory clarity", img: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "6h ago" }
+                ],
+                "world": [
+                    { title: "Historic peace treaty signed in East Asia", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "45m ago" },
+                    { title: "Massive protests erupt in European capital over labor reforms", img: "https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "3h ago" },
+                    { title: "Humanitarian aid reaches isolated region after earthquake", img: "https://images.unsplash.com/photo-1490114538077-0a7fcdcb88f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80", time: "8h ago" }
+                ]
+            }
+        };
+    </script>
+
+    <!-- ========================================== -->
+    <!-- HEADER & NAVIGATION                        -->
+    <!-- ========================================== -->
+    <header class="sticky top-0 z-50 w-full">
+        
+        <!-- Top Utility Bar -->
+        <div class="hidden md:block bg-royal-navy text-slate-300 border-b border-slate-700 text-xs">
+            <div class="container mx-auto px-4 flex justify-between items-center h-9">
+                <div class="flex items-center space-x-4">
+                    <span id="liveDateTime" class="font-medium"></span>
+                    <span class="text-slate-600">|</span>
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-1 text-crimson-red" fill="currentColor" viewBox="0 0 20 20"><path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"></path></svg>
+                        <span id="weatherWidget">22°C, London</span>
+                    </span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="flex items-center space-x-1.5 font-medium">
+                        <span class="text-emerald-400">▲</span> S&P 500 4,783.45
+                        <span class="text-slate-600 mx-1">|</span>
+                        <span class="text-red-400">▼</span> BTC $61,240
+                        <span class="text-slate-600 mx-1">|</span>
+                        <span class="text-emerald-400">▲</span> EUR/USD 1.085
+                    </span>
+                    <span class="text-slate-600">|</span>
+                    <select class="bg-transparent border-none text-slate-300 text-xs outline-none cursor-pointer">
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>Français</option>
+                        <option>Deutsch</option>
+                        <option>中文</option>
+                    </select>
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="hover:text-white transition">
+                        <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="bg-white dark:bg-royal-navy border-b border-slate-200 dark:border-slate-700 shadow-sm">
+            <div class="container mx-auto px-4 flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 group">
+                    <svg class="w-10 h-10 text-crimson-red glow-globe group-hover:rotate-180 transition-transform duration-1000" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18"></path>
+                    </svg>
+                    <div class="flex flex-col leading-none">
+                        <span class="text-2xl font-800 font-ui font-extrabold tracking-tight text-royal-navy dark:text-white">OMNI<span class="text-crimson-red">GLOBE</span></span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 font-medium">The Universal Pulse</span>
+                    </div>
+                </a>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search global news, topics, events..." class="w-full py-2.5 pl-10 pr-4 bg-slate-100 dark:bg-royal-navy-light border border-slate-200 dark:border-slate-700 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red focus:border-transparent transition">
+                        <svg class="absolute left-3 top-3 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <div class="absolute right-3 top-2.5 hidden md:flex items-center space-x-1 text-[10px] font-medium text-slate-400">
+                            <kbd class="px-1.5 py-0.5 border border-slate-300 dark:border-slate-600 rounded">⌘</kbd>
+                            <kbd class="px-1.5 py-0.5 border border-slate-300 dark:border-slate-600 rounded">K</kbd>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:flex items-center space-x-2 bg-crimson-red hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded-full transition">
+                        <span class="w-2 h-2 bg-white rounded-full live-dot"></span>
+                        Subscribe
+                    </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobileMenuToggle" class="md:hidden text-royal-navy dark:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation Categories -->
+            <nav class="hidden md:block border-t border-slate-100 dark:border-slate-800">
+                <div class="container mx-auto px-4 flex items-center justify-center space-x-8 h-12 text-sm font-medium">
+                    <a href="#" class="text-crimson-red font-semibold border-b-2 border-crimson-red pb-3">Home</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3">World</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3 flex items-center">Tech & AI <span class="ml-1 text-[9px] bg-crimson-red text-white px-1 rounded">NEW</span></a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3">Business</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3">Politics</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3">Science</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3">Lifestyle</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3">Opinion</a>
+                    <a href="#" class="hover:text-crimson-red transition pb-3 flex items-center">Videos <span class="ml-1 w-2 h-2 bg-crimson-red rounded-full live-dot"></span></a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Breaking News Ticker -->
+        <div class="ticker-container relative flex items-center bg-royal-navy dark:bg-black border-b border-slate-800 overflow-hidden h-10">
+            <div class="absolute left-0 z-10 flex items-center bg-crimson-red text-white h-full px-4 font-extrabold text-xs uppercase tracking-wider glow-red">
+                <span class="w-1.5 h-1.5 bg-white rounded-full live-dot mr-2"></span>
+                Breaking
+            </div>
+            <div class="whitespace-nowrap pl-32 pr-4 overflow-hidden">
+                <div id="breakingTicker" class="ticker-animate text-slate-300 text-sm font-medium"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION (3-COLUMN LAYOUT)             -->
+    <!-- ========================================== -->
+    <main class="container mx-auto px-4 py-8">
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Sidebar: Trending Now -->
+            <aside class="lg:col-span-3 order-2 lg:order-1">
+                <div class="bg-white dark:bg-royal-navy-light rounded-xl p-5 border border-slate-100 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100 dark:border-slate-700">
+                        <h3 class="font-extrabold text-lg flex items-center">
+                            <svg class="w-5 h-5 text-crimson-red mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M13 7H7v6h6V7z"></path><path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd"></path></svg>
+                            Trending Now
+                        </h3>
+                        <span class="text-xs text-slate-400">Last 24h</span>
+                    </div>
+                    <ul id="trendingList" class="space-y-4"></ul>
+                </div>
+            </aside>
+
+            <!-- Center: Featured High-Impact Story -->
+            <div class="lg:col-span-6 order-1 lg:order-2">
+                <article class="article-card bg-white dark:bg-royal-navy-light rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm cursor-pointer">
+                    <div class="relative overflow-hidden h-[400px] md:h-[500px]">
+                        <img id="heroImg" src="" alt="Hero Story" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span id="heroCategory" class="bg-crimson-red text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"></span>
+                                <span class="text-white/80 text-xs font-medium flex items-center">
+                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                                    1.5M Views
+                                </span>
+                            </div>
+                            <h1 id="heroTitle" class="text-white text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 font-ui"></h1>
+                            <p id="heroExcerpt" class="text-slate-200 text-sm md:text-base mb-4 max-w-3xl font-body hidden md:block"></p>
+                            <div class="flex items-center text-white/90 text-xs space-x-4">
+                                <span id="heroAuthor" class="font-semibold"></span>
+                                <span id="heroDate"></span>
+                                <span class="flex items-center">
+                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                                    <span id="heroReadTime"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Secondary Hero (Horizontal Scroll) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4" id="secondaryHeroContainer"></div>
+            </div>
+
+            <!-- Right Sidebar: Editor's Pick -->
+            <aside class="lg:col-span-3 order-3">
+                <div class="bg-white dark:bg-royal-navy-light rounded-xl p-5 border border-slate-100 dark:border-slate-700 shadow-sm mb-6">
+                    <h3 class="font-extrabold text-lg mb-5 pb-3 border-b border-slate-100 dark:border-slate-700 flex items-center">
+                        <svg class="w-5 h-5 text-crimson-red mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        Editor's Picks
+                    </h3>
+                    <ul id="editorsPicksList" class="space-y-4"></ul>
+                </div>
+
+                <!-- Newsletter Widget -->
+                <div class="bg-royal-navy dark:bg-black rounded-xl p-6 border border-slate-700 shadow-sm text-center">
+                    <h4 class="text-white font-bold text-lg mb-2">The OmniGlobe Brief</h4>
+                    <p class="text-slate-400 text-xs mb-4">Get the world's most critical news delivered to your inbox every morning.</p>
+                    <input type="email" placeholder="Enter your email" class="w-full px-4 py-2.5 mb-3 bg-slate-800 text-white text-sm rounded border border-slate-600 focus:outline-none focus:ring-1 focus:ring-crimson-red">
+                    <button class="w-full bg-crimson-red hover:bg-red-700 text-white text-sm font-bold py-2.5 rounded transition">Subscribe Free</button>
+                </div>
+            </aside>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- AD CONTAINER (Monetization Ready)         -->
+        <!-- ========================================== -->
+        <div class="my-8 flex justify-center">
+            <div class="w-full max-w-4xl h-24 bg-slate-200 dark:bg-royal-navy-light border border-dashed border-slate-300 dark:border-slate-700 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs uppercase tracking-widest">
+                Advertisement Container (728x90 Leaderboard)
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MULTIMEDIA / VIDEO HUB SECTION             -->
+        <!-- ========================================== -->
+        <section class="mb-12">
+            <div class="flex items-end justify-between mb-6">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-royal-navy dark:text-white">OmniGlobe <span class="text-crimson-red">Studios</span></h2>
+                    <p class="text-slate-500 text-sm mt-1">Live broadcasts, video reports, and podcasts.</p>
+                </div>
+                <a href="#" class="text-sm font-semibold text-crimson-red hover:underline flex items-center">
+                    View All Media
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            
+            <div class="bg-royal-navy dark:bg-black rounded-2xl p-6 md:p-8 border border-slate-700">
+                <div id="videoHubContainer" class="flex space-x-5 overflow-x-auto hide-scroll pb-2"></div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- CATEGORY GRIDS (Tech, Business, World)     -->
+        <!-- ========================================== -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            
+            <!-- Tech & AI Column -->
+            <div>
+                <div class="flex items-center justify-between mb-5 pb-3 border-b-2 border-crimson-red">
+                    <h3 class="text-xl font-extrabold uppercase tracking-wider">Tech & AI</h3>
+                    <a href="#" class="text-xs font-semibold text-slate-500 hover:text-crimson-red">More →</a>
+                </div>
+                <div id="techGrid" class="space-y-5"></div>
+            </div>
+
+            <!-- Business Column -->
+            <div>
+                <div class="flex items-center justify-between mb-5 pb-3 border-b-2 border-crimson-red">
+                    <h3 class="text-xl font-extrabold uppercase tracking-wider">Global Economy</h3>
+                    <a href="#" class="text-xs font-semibold text-slate-500 hover:text-crimson-red">More →</a>
+                </div>
+                <div id="businessGrid" class="space-y-5"></div>
+            </div>
+
+            <!-- World Column -->
+            <div>
+                <div class="flex items-center justify-between mb-5 pb-3 border-b-2 border-crimson-red">
+                    <h3 class="text-xl font-extrabold uppercase tracking-wider">Regional News</h3>
+                    <a href="#" class="text-xs font-semibold text-slate-500 hover:text-crimson-red">More →</a>
+                </div>
+                <div id="worldGrid" class="space-y-5"></div>
+            </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- LONG FORM ARTICLE PREVIEW (WITH TOC)       -->
+        <!-- ========================================== -->
+        <section class="mb-12 bg-white dark:bg-royal-navy-light rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-4">
+                <!-- Table of Contents -->
+                <aside class="bg-slate-50 dark:bg-royal-navy p-8 border-r border-slate-100 dark:border-slate-700">
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-crimson-red mb-4">Table of Contents</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#sec1" class="hover:text-crimson-red transition flex"><span class="text-slate-400 mr-2">01</span> The Economic Shift</a></li>
+                        <li><a href="#sec2" class="hover:text-crimson-red transition flex"><span class="text-slate-400 mr-2">02</span> Technological Leverage</a></li>
+                        <li><a href="#sec3" class="hover:text-crimson-red transition flex"><span class="text-slate-400 mr-2">03</span> Regulatory Challenges</a></li>
+                        <li><a href="#sec4" class="hover:text-crimson-red transition flex"><span class="text-slate-400 mr-2">04</span> The Path Forward</a></li>
+                    </ul>
+                </aside>
+                
+                <!-- Article Body -->
+                <article class="md:col-span-3 p-8 md:p-12">
+                    <span class="text-xs font-bold uppercase tracking-wider text-crimson-red">Opinion / Analysis</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mt-2 mb-6 font-ui leading-tight">The Unprecedented Consolidation of Global Tech Power</h2>
+                    <div class="flex items-center space-x-4 mb-8 pb-6 border-b border-slate-100 dark:border-slate-700">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full" alt="Author">
+                        <div>
+                            <p class="font-semibold text-sm">Marcus Thorne</p>
+                            <p class="text-xs text-slate-500">Chief Economics Correspondent • 8 min read</p>
+                        </div>
+                    </div>
+                    <div class="font-body text-slate-700 dark:text-slate-300 space-y-4 text-base leading-relaxed">
+                        <p id="sec1">In the last decade, the nexus of technological innovation has shifted from distributed startups to a handful of behemoth conglomerates. This consolidation presents unique challenges for antitrust regulators worldwide. The scale at which these entities operate transcends traditional geographic boundaries, creating supra-national entities that influence policy in ways previously thought impossible.</p>
+                        <p id="sec2">The leverage exerted through control of foundational infrastructure—cloud computing, AI models, and semiconductor supply chains—creates moats that are virtually impenetrable to newcomers. However, this same leverage can be directed towards unprecedented societal breakthroughs if aligned with public interest frameworks.</p>
+                        <blockquote class="border-l-4 border-crimson-red pl-6 italic text-lg py-2">"We are witnessing the formation of digital empires that rival the economic complexity of nation-states."</blockquote>
+                        <p id="sec3">Regulatory challenges abound. The disparity between the speed of technological advancement and the legislative process has never been wider. Lawmakers are forced to regulate technologies they scarcely understand, often relying on the very companies they aim to regulate for technical expertise and data.</p>
+                        <p id="sec4">Moving forward, the path requires a delicate balance. Over-regulation stifles innovation; under-regulation invites systemic risk. The solution lies in agile, adaptive regulatory frameworks built on continuous dialogue between technologists, economists, and policymakers. The future of global economic stability may well depend on getting this balance right.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="bg-royal-navy dark:bg-black text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-crimson-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18"></path></svg>
+                        <span class="text-xl font-extrabold text-white">OMNI<span class="text-crimson-red">GLOBE</span></span>
+                    </div>
+                    <p class="text-sm max-w-sm">The Universal Pulse of Global News. Delivering high-tech, authoritative journalism across 150 countries.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-8 h-8 bg-slate-800 hover:bg-crimson-red rounded-full flex items-center justify-center transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.714 0 15.059-8.051 14.711-15.29.96-.695 1.795-1.562 2.455-2.549z"></path></svg></a>
+                        <a href="#" class="w-8 h-8 bg-slate-800 hover:bg-crimson-red rounded-full flex items-center justify-center transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+                        <a href="#" class="w-8 h-8 bg-slate-800 hover:bg-crimson-red rounded-full flex items-center justify-center transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sections</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-crimson-red transition">World</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Tech & AI</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Business</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Politics</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Science</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-crimson-red transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Our Team</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Press Room</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Advertise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-crimson-red transition">Terms of Use</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-crimson-red transition">Editorial Ethics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>© 2023 OmniGlobe News. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Engineered for speed, optimized for truth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC                           -->
+    <!-- ========================================== -->
+    <script>
+        // === Live Date & Time ===
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+            document.getElementById('liveDateTime').textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // === Breaking News Ticker ===
+        const tickerEl = document.getElementById('breakingTicker');
+        tickerEl.innerHTML = OmniGlobeData.breakingNews.map(item => `<span class="inline-flex items-center mx-8"><span class="w-1.5 h-1.5 bg-crimson-red rounded-full mr-3"></span>${item}</span>`).join('');
+
+        // === Trending Now List ===
+        const trendingEl = document.getElementById('trendingList');
+        trendingEl.innerHTML = OmniGlobeData.trending.map(item => `
+            <li class="flex items-start space-x-3 group cursor-pointer">
+                <span class="text-2xl font-extrabold text-slate-200 dark:text-slate-700 group-hover:text-crimson-red transition leading-none">${item.id}</span>
+                <div class="flex-1">
+                    <p class="text-sm font-semibold leading-snug group-hover:text-crimson-red transition mb-1">${item.title}</p>
+                    <div class="flex items-center space-x-2 text-[11px] text-slate-400">
+                        <span>${item.time}</span>
+                        <span>•</span>
+                        <span class="flex items-center">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                            ${item.views}
+                        </span>
+                    </div>
+                </div>
+                <img src="${item.img}" alt="" class="w-12 h-12 rounded object-cover">
+            </li>
+        `).join('');
+
+        // === Editor's Picks ===
+        document.getElementById('editorsPicksList').innerHTML = OmniGlobeData.editorsPicks.map((item, idx) => `
+            <li class="flex items-start space-x-3 group cursor-pointer">
+                <span class="text-crimson-red mt-1 text-xs">●</span>
+                <p class="text-sm font-medium leading-snug group-hover:text-crimson-red transition">${item}</p>
+            </li>
+        `).join('');
+
+        // === Hero Story ===
+        document.getElementById('heroImg').src = OmniGlobeData.hero.img;
+        document.getElementById('heroCategory').textContent = OmniGlobeData.hero.category;
+        document.getElementById('heroTitle').textContent = OmniGlobeData.hero.title;
+        document.getElementById('heroExcerpt').textContent = OmniGlobeData.hero.excerpt;
+        document.getElementById('heroAuthor').textContent = `By ${OmniGlobeData.hero.author}`;
+        document.getElementById('heroDate').textContent = OmniGlobeData.hero.date;
+        document.getElementById('heroReadTime').textContent = OmniGlobeData.hero.readTime;
+
+        // === Secondary Hero ===
+        document.getElementById('secondaryHeroContainer').innerHTML = OmniGlobeData.secondaryHero.map(item => `
+            <article class="article-card bg-white dark:bg-royal-navy-light rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm cursor-pointer">
+                <div class="relative h-32 overflow-hidden">
+                    <img src="${item.img}" alt="" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <span class="absolute top-2 left-2 bg-crimson-red text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded">${item.category}</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-sm font-bold leading-snug hover:text-crimson-red transition">${item.title}</h4>
+                </div>
+            </article>
+        `).join('');
+
+        // === Video Hub ===
+        document.getElementById('videoHubContainer').innerHTML = OmniGlobeData.videos.map(video => `
+            <div class="flex-none w-72 group cursor-pointer">
+                <div class="relative h-40 rounded-lg overflow-hidden mb-3">
+                    <img src="${video.img}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40">
+                            <svg class="w-5 h-5 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                        </div>
+                    </div>
+                    <span class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-0.5 rounded ${video.duration === 'LIVE' ? 'bg-crimson-red' : ''}">${video.duration}</span>
+                </div>
+                <p class="text-[10px] uppercase tracking-wider text-crimson-red font-bold mb-1">${video.type}</p>
+                <h4 class="text-sm font-bold text-white group-hover:text-crimson-red transition leading-snug">${video.title}</h4>
+            </div>
+        `).join('');
+
+        // === Category Grids ===
+        function generateCategoryCard(item) {
+            return `
+                <article class="article-card flex bg-white dark:bg-royal-navy-light rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm cursor-pointer">
+                    <div class="flex-none w-24 h-24 overflow-hidden">
+                        <img src="${item.img}" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 flex flex-col justify-center">
+                        <h4 class="text-sm font-bold leading-snug hover:text-crimson-red transition mb-1.5">${item.title}</h4>
+                        <p class="text-[11px] text-slate-400 flex items-center">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            ${item.time}
+                        </p>
+                    </div>
+                </article>
+            `;
+        }
+        document.getElementById('techGrid').innerHTML = OmniGlobeData.categoryGrid.tech.map(generateCategoryCard).join('');
+        document.getElementById('businessGrid').innerHTML = OmniGlobeData.categoryGrid.business.map(generateCategoryCard).join('');
+        document.getElementById('worldGrid').innerHTML = OmniGlobeData.categoryGrid.world.map(generateCategoryCard).join('');
+
+        // === Theme Toggle ===
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // === Mobile Menu (Basic Implementation) ===
+        // In production, this would open a full-screen drawer
+        document.getElementById('mobileMenuToggle')?.addEventListener('click', () => {
+            alert('Mobile menu drawer would open here.');
+        });
+    </script>
+</body>
+</html>
